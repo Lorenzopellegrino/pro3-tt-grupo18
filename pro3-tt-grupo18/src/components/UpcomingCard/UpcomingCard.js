@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class CardPopulares extends Component {
+class UpcomingCard extends Component {
     constructor(props){
         super(props)
         this.state = ({
@@ -32,4 +32,4 @@ class CardPopulares extends Component {
 
     }
 }
-export default CardPopulares;
+export default UpcomingCard;
