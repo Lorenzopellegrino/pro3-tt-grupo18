@@ -18,7 +18,7 @@ class CardPopulares extends Component {
         return(
             <>
                 <article className="peliculas-grid">
-                    <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt=""/>
+                    <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className="fotopelicula"/>
                     <h3>{title}</h3>
                     <p className="more" onClick={() => this.verMas()}>{this.state.verMas ? "Ocultar descripción" : "Ver descripción" }</p>
                     {this.state.verMas && (<section className="extra">

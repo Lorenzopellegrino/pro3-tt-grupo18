@@ -1,0 +1,11 @@
+.PeliPopContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+}

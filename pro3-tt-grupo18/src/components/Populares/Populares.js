@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import CardPopulares from "../CardPopulares/CardPopulares";
+import "./Populares.css"
 
 class Populares extends Component {
     constructor(props){
