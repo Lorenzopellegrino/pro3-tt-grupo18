@@ -21,7 +21,7 @@ class Populares extends Component {
             <>
             <section className="PeliPopContainer">
                     {   this.state.datos.length > 0 ? 
-                        this.state.datos.map((results, idx) => (
+                        this.state.datos.slice(0,5).map((results, idx) => (
                             <CardPopulares results = {results} key = {idx}/>)) 
                             : <p>Cargando...</p>
                     }
