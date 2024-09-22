@@ -3,6 +3,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Populares from './components/Populares/Populares';
 import Upcoming from './components/Upcoming/Upcoming';
+import Detalle from './components/Detalle';
 
 function App() {
   let menu = [
