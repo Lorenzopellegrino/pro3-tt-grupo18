@@ -1,11 +1,73 @@
-.PeliPopContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+/* Fondo general oscuro */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
-article {
+
+/* Contenedor de las películas populares */
+.PeliPopContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 15%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1c1c; /* Un negro más claro para contrastar */
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada tarjeta de película */
+.PeliPopContainer .card {
+    background-color: #252525; /* Un gris oscuro */
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.PeliPopContainer .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo de las imágenes dentro de cada tarjeta */
+.PeliPopContainer .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Títulos de las películas */
+.PeliPopContainer .card h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+/* Botón "Ver Más" */
+.botonVerMas {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ff6f61; /* Color de acento */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonVerMas:hover {
+    background-color: #e65c50;
+}
+
+.botonVerMas:active {
+    background-color: #cc5448;
 }

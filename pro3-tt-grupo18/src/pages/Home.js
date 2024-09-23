@@ -23,10 +23,8 @@ componentDidMount() {
       (<>
       <h2>Películas Populares</h2>
       <Populares url="https://api.themoviedb.org/3/movie/popular?api_key=bf0e25b4b648e8ee928c7dede4d12427" titulo="Peliculas Populares" />
-      <button>Ver Más</button>
       <h2>Próximos Estrenos</h2>
       <Upcoming url="https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427" titulo="Upcoming" />
-      <button>Ver Más</button>
       </>)}
         
       </>

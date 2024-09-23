@@ -26,6 +26,7 @@ class Populares extends Component {
                             : <p>Cargando...</p>
                     }
             </section>
+            <button className="botonVerMas">Ver Más</button>
             </>
         )
     }

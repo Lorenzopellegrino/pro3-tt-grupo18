@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import UpcomingCard from "../UpcomingCard/UpcomingCard";
+import "./Upcoming.css";
 
 class Upcoming extends Component {
     constructor(props){
@@ -26,6 +27,7 @@ class Upcoming extends Component {
                     }
                     
             </section>
+            <button className="botonVerMas">Ver Más</button>
             </>
         )
     }
