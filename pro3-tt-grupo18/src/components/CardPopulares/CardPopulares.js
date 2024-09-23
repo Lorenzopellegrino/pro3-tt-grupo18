@@ -27,6 +27,7 @@ class CardPopulares extends Component {
                     <button>Ir a detalle</button>
                     <button>Añadir a favoritos</button>
                 </article>
+                
             </>
         )
 

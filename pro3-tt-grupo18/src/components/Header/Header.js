@@ -1,21 +1,18 @@
 import React from "react";
+import "./Header.css";
 
-function Header(props){
+const Header = () => {
     return(
-        <nav>
-            <ul className="main-nav">
-                { 
-                    props.elementosMenu.map((unMenu, idx)=> <li>{unMenu}</li>)
-                    
-                }
-            </ul>
-            <div className = "main-nav">
-                <input type="text" placeholder="Buscar Peliculas ....."></input>
-            </div>
-            <ul className="user">
-                <li>Nombre usuario <img src="./img/user.jpg" alt=""/></li>
-            </ul>
-        </nav>
+        <>
+            <h1 className="titulo">Cuevana 2</h1>
+            <nav className="navBar">
+                <p> Películas Populares </p>
+                
+                <p> Próximos Estrenos </p>
+
+                <p> Favoritos</p>
+            </nav>
+        </>
     )
 }
 

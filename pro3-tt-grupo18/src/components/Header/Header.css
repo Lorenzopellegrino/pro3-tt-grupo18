@@ -1,0 +1,8 @@
+.titulo{
+    color: white;
+    background-color: black; 
+};
+
+.navBar{
+    display: flex;
+}
