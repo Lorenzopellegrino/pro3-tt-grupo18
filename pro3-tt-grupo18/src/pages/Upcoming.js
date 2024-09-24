@@ -1,0 +1,64 @@
+import React , {Component} from 'react'
+import UpcomingCard from '../components/UpcomingCard/UpcomingCard'
+class Upcoming extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            peliculas: [],
+            peliculasfiltradas:[],
+            valorfiltrado: "",
+            paginaActual: 1 
+        }
+    }
+
+    componentDidMount(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`)
+        .then(response => response.json())
+        .then(data => this.setState({
+            peliculas: data.results,
+            peliculasfiltradas: data.results,
+            paginaActual: this.state.paginaActual + 1
+        }))
+        .catch((error)=> console.log(error));
+    }
+
+    handleFilter(e){
+        const valorusuario = e.target.value;
+        this.setState({
+            valorfiltrado:valorusuario,
+            peliculasfiltradas: this.state.peliculas.filter((pelicula)=>
+            pelicula.title.toLowerCase().includes(valorusuario.toLowerCase()))
+        })
+    }
+
+    handleResetFilter(){
+        this.setState({
+            valorfiltrado:"",
+            peliculasfiltradas: this.state.peliculas,
+        })
+    }
+
+    handelLoadMore(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`)
+        .then(response => response.json())
+        .then(data => this.setState({
+            peliculas: this.state.peliculas.concat(data.results),
+            peliculasfiltradas: this.state.peliculasfiltradas.concat(data.results),
+            paginaActual: this.state.paginaActual + 1
+        }))
+        .catch((error)=> console.log(error));
+    }
+
+    render(){
+        return(
+            <>
+            <input type= 'text' value={this.state.valorfiltrado} onChange={(e)=>this.handleFilter(e)}/>
+            <button onClick={()=>this.handleResetFilter()}>Reset Filter</button>
+            <UpcomingCard peliculas= {this.state.peliculasfiltradas}/>
+            <button onClick={()=> this.handelLoadMore()}>Ver Mas </button>
+            </>
+        )
+    }
+}
+
+export default Upcoming

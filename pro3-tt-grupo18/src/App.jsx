@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Upcoming from './pages/Upcoming';
 /*import Detalle from './components/Detalle';*/
 
 function App() {
