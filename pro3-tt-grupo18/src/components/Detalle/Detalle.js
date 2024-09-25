@@ -1,4 +1,3 @@
-/*
 import React, {Component} from 'react';
 import "./Detalle.css";
 import {FaHeart} from "react-icons/fa";
@@ -41,7 +40,7 @@ class Detalle extends Component{
             }else{
                 const favoritasStorage = localStorage.getItem("favoritas");
                 const favParsed = JSON.parse(favoritasStorage)
-                favoritos.push(this.state.pelicula.id)
+                favParsed.push(this.state.pelicula.id)
                 const favString = JSON.stringify(favParsed)
                 localStorage.setItem("favoritas", favString)
             }
@@ -70,7 +69,7 @@ class Detalle extends Component{
                     }
                     </span>
                 </div>
-                <div className= "data">
+                <div className= "dataPeli">
                     <h2>{pelicula.original_title}</h2>
                     <h4>Genero/os: {this.state.generos.map(genero => <li key={genero.id} className="peliculas-genero">{genero.name}</li>)} </h4>
                     <h4>Sinopsis: {pelicula.overview}</h4>
@@ -84,4 +83,4 @@ class Detalle extends Component{
 
 }
 
-export default Detalle;*/
+export default Detalle;

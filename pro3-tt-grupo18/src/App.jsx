@@ -5,7 +5,8 @@ import Header from './components/Header/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Upcoming from './pages/Upcoming';
-/*import Detalle from './components/Detalle';*/
+import Detalles from './pages/Detalles';
+import Favs from './pages/Favoritos'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/movie/:id" component={Detalles}/>
+        <Route path="/favoritas" component={Favs}/>
         <Route path='' component={NotFound}/>
       </Switch>
       <Footer />
