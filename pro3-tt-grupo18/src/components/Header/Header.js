@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     return(
@@ -8,7 +9,7 @@ const Header = () => {
             <nav className="navBar">
                 <p> Películas Populares </p>
                 
-                <p> Próximos Estrenos </p>
+                <Link to = "/VerMas/Upcoming"> Próximos Estrenos </Link>
 
                 <p> Favoritos</p>
             </nav>

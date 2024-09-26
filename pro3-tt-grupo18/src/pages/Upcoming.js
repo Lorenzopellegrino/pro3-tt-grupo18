@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import UpcomingCard from '../components/UpcomingCard/UpcomingCard'
-class Upcoming extends Component {
+class UpcomingVerMas extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -61,4 +61,4 @@ class Upcoming extends Component {
     }
 }
 
-export default Upcoming
+export default UpcomingVerMas

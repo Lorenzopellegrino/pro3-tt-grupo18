@@ -4,9 +4,10 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import Upcoming from './pages/Upcoming';
 import Detalles from './pages/Detalles';
 import Favs from './pages/Favoritos'
+import UpcomingVerMas from './pages/Upcoming';
+
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/VerMas/Upcoming" component={UpcomingVerMas} />
         <Route path="/movie/:id" component={Detalles}/>
         <Route path="/favoritas" component={Favs}/>
         <Route path='' component={NotFound}/>
