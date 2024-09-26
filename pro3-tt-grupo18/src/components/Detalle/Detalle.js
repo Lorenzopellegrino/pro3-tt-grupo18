@@ -71,7 +71,7 @@ class Detalle extends Component{
                 </div>
                 <div className= "dataPeli">
                     <h2>{pelicula.original_title}</h2>
-                    <h4>Genero/os: {this.state.generos.map(genero => <li key={genero.id} className="peliculas-genero">{genero.name}</li>)} </h4>
+                    <h4>Genero/os: {this.state.genres.map(genero => <li key={genero.id} className="generoPelis">{genero.name}</li>)} </h4>
                     <h4>Sinopsis: {pelicula.overview}</h4>
                     <h4>Duración: {pelicula.runtime} minutos</h4>
                     <h4>Rating: {pelicula.popularity}/10</h4>
