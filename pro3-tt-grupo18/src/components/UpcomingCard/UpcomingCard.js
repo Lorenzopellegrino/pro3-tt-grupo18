@@ -15,7 +15,7 @@ class UpcomingCard extends Component {
         })
     }
     render(){
-        const {title, overview, poster_path, } = this.props.results
+        const { title, overview, poster_path } = this.props.results;
         return(
             <>
                 <article className="peliculas-grid">

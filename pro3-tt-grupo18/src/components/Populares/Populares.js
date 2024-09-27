@@ -10,11 +10,18 @@ class Populares extends Component {
         });
     }
     componentDidMount(){
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=bf0e25b4b648e8ee928c7dede4d12427")
-        .then(response => response.json())
-        .then(data => this.setState(
-            { datos: data.results })
-        ).catch(error => console.log(error))
+        this.setState({
+            isLoading: true,
+        });
+        fetch("https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427"
+        )
+        .then((response)=> response.json())
+        .then((data)=> {
+            this.setState({
+                datos: data.results,
+                isLoading: false,
+            });
+        })
     }
     render(){
         return(

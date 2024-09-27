@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const Header = () => {
     return(
         <>
-            <h1 className="titulo">Cuevana 2</h1>
+            <h1 className="titulo">Cuevana 5</h1>
             <nav className="navBar">
                 <p> Películas Populares </p>
                 
