@@ -11,7 +11,7 @@ const Header = () => {
             <nav className="navBar">
                 <Link to= "/verMas/Populares"> Películas Populares </Link>
                 
-                <Link to = "/VerMas/Upcoming"> Próximos Estrenos </Link>
+                <Link to = "/vermas/upcoming"> Próximos Estrenos </Link>
 
                 <Link to="/favoritas"> Favoritas </Link>
             </nav>
