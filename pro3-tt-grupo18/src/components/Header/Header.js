@@ -9,7 +9,7 @@ const Header = () => {
                 <h3>Cuevana 5</h3>
             </Link>
             <nav className="navBar">
-                <Link to= "/verMas/Populares"> Películas Populares </Link>
+                <Link to= "/vermas/populares"> Películas Populares </Link>
                 
                 <Link to = "/vermas/upcoming"> Próximos Estrenos </Link>
 

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./UpcomingCard.css";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import {Link} from 'react-router-dom'
 
 class UpcomingCard extends Component {
     constructor(props){
@@ -66,7 +67,7 @@ class UpcomingCard extends Component {
                     {this.state.verMas && (<section className="extra">
                         <p>Descripción: {overview}</p>
                     </section>)}
-                    <button>Ir a detalle</button>
+                    <button><Link to= "/vermas/upcoming"> Ir a detalle </Link></button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (
                             <p>

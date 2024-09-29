@@ -28,7 +28,7 @@ class Favs extends Component{
         return(
             <>
             <h1>Tus peliculas favoritas</h1>
-            <CardPopulares peliculas={this.state.peliculas}/>
+            <CardPopulares peliculas= {this.state.peliculas}/>
             <UpcomingCard peliculas = {this.state.peliculas}/>
             </>
         )

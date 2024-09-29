@@ -7,7 +7,7 @@ import NotFound from './pages/NotFound';
 import Detalles from './pages/Detalles';
 import Favs from './pages/Favoritas'
 import UpcomingVerMas from './pages/Upcoming';
-
+import PopularesVerMas from './pages/Popular';
 
 function App() {
   return (
@@ -15,13 +15,14 @@ function App() {
       <Router>
       <Header/>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/vermas/upcoming" component={UpcomingVerMas} />
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/vermas/upcoming" component={UpcomingVerMas}/>
+        <Route exact path="/vermas/populares" component={PopularesVerMas}/>
         <Route path="/movie/:id" component={Detalles}/>
         <Route path="/favoritas" component={Favs}/>
         <Route path='' component={NotFound}/>
       </Switch>
-      <Footer />
+      <Footer/>
     </Router>
     </>
   );
