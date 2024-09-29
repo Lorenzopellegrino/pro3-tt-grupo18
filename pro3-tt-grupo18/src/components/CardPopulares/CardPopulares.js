@@ -67,7 +67,7 @@ class CardPopulares extends Component {
                     {this.state.verMas && (<section className="extra">
                         <p>Descripción: {overview}</p>
                     </section>)}
-                    <button><Link to= "/vermas/populares"> Ir a detalle </Link></button>
+                    <button><Link to= "/movie/:id"> Ir a detalle </Link></button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (
                             <p>

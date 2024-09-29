@@ -7,21 +7,19 @@ body {
     padding: 0;
 }
 
-/* Contenedor de las películas populares */
 .PeliPopContainer {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    background-color: #1c1c1c; /* Un negro más claro para contrastar */
+    background-color: #1c1c1c;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     flex-wrap: wrap;
 }
 
-/* Estilo de cada tarjeta de película */
 .PeliPopContainer .card {
-    background-color: #252525; /* Un gris oscuro */
+    background-color: #252525; 
     border: 1px solid #333;
     border-radius: 10px;
     padding: 15px;
@@ -36,21 +34,18 @@ body {
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Estilo de las imágenes dentro de cada tarjeta */
 .PeliPopContainer .card img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
-/* Títulos de las películas */
 .PeliPopContainer .card h3 {
     font-size: 1.2rem;
     color: #ffffff;
     margin-bottom: 5px;
 }
 
-/* Botón "Ver Más" */
 .botonVerMas {
     display: block;
     margin: 20px auto;

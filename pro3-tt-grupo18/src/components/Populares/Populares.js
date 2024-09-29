@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import CardPopulares from "../CardPopulares/CardPopulares";
-import "./Populares.css"
+import "./Populares.css";
+import {Link} from 'react-router-dom';
 
 class Populares extends Component {
     constructor(props){
@@ -33,7 +34,7 @@ class Populares extends Component {
                             : <p>Cargando...</p>
                     }
             </section>
-            <button className="botonVerMas">Ver Más</button>
+            <button className="botonVerMas"><button className="botonVerMas"><Link to= "/vermas/upcoming"> Ver Más </Link></button></button>
             </>
         )
     }

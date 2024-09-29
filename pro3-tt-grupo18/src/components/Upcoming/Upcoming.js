@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import UpcomingCard from "../UpcomingCard/UpcomingCard";
 import "./Upcoming.css";
+import {Link} from 'react-router-dom'
 
 class Upcoming extends Component {
     constructor(props){
@@ -34,7 +35,7 @@ class Upcoming extends Component {
                     }
                     
             </section>
-            <button className="botonVerMas">Ver Más</button>
+            <button className="botonVerMas"><Link to= "/vermas/upcoming"> Ver Más </Link></button>
             </>
         )
     }
