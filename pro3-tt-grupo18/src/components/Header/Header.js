@@ -5,13 +5,15 @@ import {Link} from 'react-router-dom'
 const Header = () => {
     return(
         <>
-            <h1 className="titulo">Cuevana 5</h1>
+            <Link to="/" className="titulo">
+                <h3>Cuevana 5</h3>
+            </Link>
             <nav className="navBar">
                 <Link to= "/verMas/Populares"> Películas Populares </Link>
                 
                 <Link to = "/VerMas/Upcoming"> Próximos Estrenos </Link>
 
-                <Link to="/favoritas"> Favoritos </Link>
+                <Link to="/favoritas"> Favoritas </Link>
             </nav>
         </>
     )
