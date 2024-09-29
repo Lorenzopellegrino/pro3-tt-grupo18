@@ -17,14 +17,15 @@
     margin-bottom: 20px; 
 }
 
-.navBar p {
+.navBar a {
     color: #ffffff; 
-    margin: 0 20px; 
+    margin: 0 15px; 
     cursor: pointer; 
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.navBar p:hover {
+.navBar a:hover {
     color: #ff6f61; 
     text-decoration: underline;
 }

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import "./CardPopulares.css";
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 
 class CardPopulares extends Component {
     constructor(props){
@@ -7,7 +9,45 @@ class CardPopulares extends Component {
         this.state = ({
             data: "",
             varMas: false,
+            esFav: false,
         })
+    }
+    componentDidMount(){
+        if (localStorage.getItem("favoritas") != null){
+            if(
+                JSON.parse(localStorage.getItem("favoritas").includes(this.state.id))
+            ){
+                this.setState({
+                    esFav: true,
+                });
+            }
+        }
+    }
+    Favoritas(){
+        this.setState({
+            esFav: !this.state.esFav,
+        });
+        if(
+            this.state.esFav !== true
+        ){
+            if(
+                localStorage.getItem("favoritas") === null
+            ){
+                localStorage.setItem("favoritas", JSON.stringify([this.state.id]))
+            } else{
+                const favoritasStorage = localStorage.getItem("favoritas");
+                const favParsed = JSON.parse(favoritasStorage);
+                favParsed.push(this.state.id);
+                const favString = JSON.stringify(favParsed);
+                localStorage.setItem("favoritas", favString);
+            }
+        } else{
+            const favoritasStorage = localStorage.getItem("favoritas");
+            const favParsed = JSON.parse(favoritasStorage);
+            const favFiltered = favParsed.filter((id) => id !== this.state.id);
+            const favString = JSON.stringify(favFiltered);
+            localStorage.setItem("favoritas", favString);            
+        }
     }
     verMas(){
         this.setState({
@@ -15,7 +55,8 @@ class CardPopulares extends Component {
         })
     }
     render(){
-        const {title, overview, poster_path, } = this.props.results
+        const {title, overview, poster_path, } = this.props.results;
+        const {esFav} = this.state;
         return(
             <>
                 <article className="peliculas-grid">
@@ -26,9 +67,19 @@ class CardPopulares extends Component {
                         <p>Descripción: {overview}</p>
                     </section>)}
                     <button>Ir a detalle</button>
-                    <button>Añadir a favoritos</button>
+                    <button onClick={() => this.Favoritas()}>
+                        {esFav ? (
+                            <p>
+                                <FaHeart color="red" /> Eliminar favorita{" "}
+                            </p>
+                        ):(
+                            <p>
+                                <FaRegHeart /> Marcar favorita{" "}
+                            </p>
+                        )
+                    }
+                    </button>
                 </article>
-                
             </>
         )
 

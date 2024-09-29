@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Detalles from './pages/Detalles';
-import Favs from './pages/Favoritos'
+import Favs from './pages/Favoritas'
 import UpcomingVerMas from './pages/Upcoming';
 
 

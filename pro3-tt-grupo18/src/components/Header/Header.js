@@ -7,11 +7,11 @@ const Header = () => {
         <>
             <h1 className="titulo">Cuevana 5</h1>
             <nav className="navBar">
-                <p> Películas Populares </p>
+                <Link to= "/verMas/Populares"> Películas Populares </Link>
                 
                 <Link to = "/VerMas/Upcoming"> Próximos Estrenos </Link>
 
-                <p> Favoritos</p>
+                <Link to="/favoritas"> Favoritos </Link>
             </nav>
         </>
     )
