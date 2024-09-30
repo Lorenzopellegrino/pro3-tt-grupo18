@@ -34,7 +34,7 @@ class Populares extends Component {
                             : <p>Cargando...</p>
                     }
             </section>
-            <button className="botonVerMas"><button className="botonVerMas"><Link to= "/vermas/upcoming"> Ver Más </Link></button></button>
+            <button className="botonVerMas"><Link to= "/vermas/populares"> Ver Más </Link></button>
             </>
         )
     }

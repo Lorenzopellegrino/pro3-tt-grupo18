@@ -53,7 +53,11 @@ class Favs extends Component {
         return (
             <>
                 <h1>Tus películas favoritas</h1>
-                <div className="peliculas-container">
+                <div className="peliculas-container" style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    flexWrap: 'wrap',
+                }}>
                     {peliculas.map((pelicula) => (
                         <CardPopulares results={pelicula} key={pelicula.id} />
                     ))}

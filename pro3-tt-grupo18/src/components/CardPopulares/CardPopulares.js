@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 class CardPopulares extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = ({
             esFav: false,
             verMas: false,
-        };
+        });
     }
 
     componentDidMount() {
