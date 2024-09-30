@@ -60,5 +60,18 @@ body {
 }
 
 .botonVerMas:hover {
-    background-color: #e65c50;
+    background-color: #e65c50; 
+}
+
+.linkBoton {
+    color: white; 
+    text-decoration: none; 
+    display: block; 
+    height: 100%; 
+}
+
+.botonContainer {
+    display: flex; 
+    justify-content: center; 
+    margin: 20px 0;
 }

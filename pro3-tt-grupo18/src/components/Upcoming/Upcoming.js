@@ -35,7 +35,9 @@ class Upcoming extends Component {
                     }
                     
             </section>
+            <div className="botonContainer">
             <button className="botonVerMas"><Link to= "/vermas/upcoming"> Ver Más </Link></button>
+            </div>
             </>
         )
     }
