@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardPopulares from "../components/CardPopulares/CardPopulares";
+import LoaderComponent from '../components/Loader/Loader'; // Importar LoaderComponent
 
 class PopularesVerMas extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class PopularesVerMas extends Component {
             peliculasfiltradas: [],
             valorfiltrado: "",
             paginaActual: 1,
+            loading: true,
         };
     }
 
@@ -22,6 +24,7 @@ class PopularesVerMas extends Component {
                     peliculas: data.results,
                     peliculasfiltradas: data.results,
                     paginaActual: this.state.paginaActual + 1,
+                    loading: false,
                 })
             )
             .catch((error) => console.log(error));
@@ -67,6 +70,10 @@ class PopularesVerMas extends Component {
     render() {
         return (
             <>
+                {this.state.loading ? ( // Mostrar loader si loading es true
+                    <LoaderComponent />
+                ) : (
+                    <>
                 <input
                     type="text"
                     value={this.state.valorfiltrado}
@@ -81,6 +88,8 @@ class PopularesVerMas extends Component {
                     ))}
                 </div>
                 <button onClick={() => this.handelLoadMore()}>Ver Más</button>
+            </>
+                )}
             </>
         );
     }

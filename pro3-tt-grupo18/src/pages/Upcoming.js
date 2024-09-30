@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UpcomingCard from '../components/UpcomingCard/UpcomingCard';
+import LoaderComponent from '../components/Loader/Loader';
 
 class UpcomingVerMas extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class UpcomingVerMas extends Component {
             peliculasfiltradas: [],
             valorfiltrado: "",
             paginaActual: 1,
+            loading: true,
         };
     }
 
@@ -20,6 +22,7 @@ class UpcomingVerMas extends Component {
                     peliculas: data.results,
                     peliculasfiltradas: data.results,
                     paginaActual: this.state.paginaActual + 1,
+                    loading: false,
                 })
             )
             .catch((error) => console.log(error));
@@ -58,6 +61,10 @@ class UpcomingVerMas extends Component {
     render() {
         return (
             <>
+                {this.state.loading ? (
+                    <LoaderComponent />
+                ) : (
+                    <>
                 <input
                     type="text"
                     value={this.state.valorfiltrado}
@@ -72,6 +79,8 @@ class UpcomingVerMas extends Component {
                 </div>
                 
                 <button onClick={() => this.handleLoadMore()}>Ver Más</button> 
+            </>
+                )}
             </>
         );
     }
