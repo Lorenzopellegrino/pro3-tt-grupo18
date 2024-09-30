@@ -78,7 +78,7 @@ class UpcomingCard extends Component {
                         </section>
                     )}
                     <button>
-                        <Link to="/movie/:id">Ir a detalle</Link>
+                    <Link to={`/movie/${results.id}`}>Ir a detalle</Link>
                     </button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (

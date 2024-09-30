@@ -63,7 +63,7 @@ class CardPopulares extends Component {
             return <p>Loading...</p>;
         }
 
-        const { title, overview, poster_path } = results;
+        const { title, overview, poster_path, id} = results;
         return (
             <>
                 <article className="peliculas-grid">
@@ -76,7 +76,7 @@ class CardPopulares extends Component {
                         </section>
                     )}
                     <button>
-                        <Link to="/movie/:id">Ir a detalle</Link>
+                        <Link to={`/movie/${results.id}`}>Ir a detalle</Link>
                     </button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (
