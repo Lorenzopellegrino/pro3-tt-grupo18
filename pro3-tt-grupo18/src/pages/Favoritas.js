@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardPopulares from "../components/CardPopulares/CardPopulares";
+import LoaderComponent from "../components/Loader/Loader";
 
 class Favs extends Component {
     constructor(props) {
@@ -22,8 +23,8 @@ class Favs extends Component {
 
             Promise.all(
                 favParsed.map((id) =>
-                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bf0e25b4b648e8ee928c7dede4d12427`
-).then((respuesta) => respuesta.json())
+                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bf0e25b4b648e8ee928c7dede4d12427`)
+                .then((respuesta) => respuesta.json())
                 )
             )
                 .then((data) => {
@@ -43,7 +44,7 @@ class Favs extends Component {
         const { peliculas, loading } = this.state;
 
         if (loading) {
-            return <p>Cargando tus películas favoritas...</p>;
+            return <LoaderComponent />;
         }
 
         if (peliculas.length === 0) {
