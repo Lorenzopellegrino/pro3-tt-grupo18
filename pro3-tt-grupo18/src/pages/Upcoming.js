@@ -13,7 +13,7 @@ class UpcomingVerMas extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`) // Corrección aquí
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`) 
             .then((response) => response.json())
             .then((data) =>
                 this.setState({
@@ -42,8 +42,8 @@ class UpcomingVerMas extends Component {
         });
     }
 
-    handleLoadMore() { // Corrección aquí: cambié "handel" a "handle"
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`) // Corrección aquí
+    handleLoadMore() { 
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`) 
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
@@ -71,7 +71,7 @@ class UpcomingVerMas extends Component {
                     ))}
                 </div>
                 
-                <button onClick={() => this.handleLoadMore()}>Ver Más</button> {/* Corrección aquí */}
+                <button onClick={() => this.handleLoadMore()}>Ver Más</button> 
             </>
         );
     }
