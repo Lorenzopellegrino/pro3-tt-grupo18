@@ -50,7 +50,7 @@ body {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #ff6f61; /* Color de acento */
+    background-color: #ff6f61;
     color: white;
     border: none;
     border-radius: 5px;
@@ -61,8 +61,4 @@ body {
 
 .botonVerMas:hover {
     background-color: #e65c50;
-}
-
-.botonVerMas:active {
-    background-color: #cc5448;
 }

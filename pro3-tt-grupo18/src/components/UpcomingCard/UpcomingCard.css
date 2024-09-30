@@ -75,3 +75,8 @@
 .peliculas-grid button:active {
     background-color: #cc5448;
 }
+
+.peliculas-grid a {
+    text-decoration: none;
+    color: #ffffff;
+}
