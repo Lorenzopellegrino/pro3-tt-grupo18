@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import './Loader.css';
 
-const loader = () => {
-    return(
-        <img src='https://cdn.pixabay.com/animation/2024/04/02/07/57/07-57-40-974_512.gif'></img>
-    )
+const LoaderComponent = () => {
+    return (
+        <div className="loader-container">
+            <img 
+                src='https://j.gifs.com/KeX0g7.gif' 
+                alt="Loading" 
+                className="loader-image" 
+            />
+        </div>
+    );
 }
 
-export default loader
+export default LoaderComponent;
