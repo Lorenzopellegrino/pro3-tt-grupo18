@@ -7,18 +7,18 @@ import { Link } from "react-router-dom";
 class CardPopulares extends Component {
     constructor(props) {
         super(props);
-        this.state = ({
-            esFav: false,
+        this.state = {
             verMas: false,
-        });
+            esFav: false,
+        };
     }
 
     componentDidMount() {
-        const { results } = this.props;
-
-        if (results && results.id) {
-            const favoritas = JSON.parse(localStorage.getItem("favoritas")) || [];
-            if (favoritas.includes(results.id)) {
+        const id = this.props.results.id;
+        if (localStorage.getItem("favoritas") != null) {
+            if (
+                JSON.parse(localStorage.getItem("favoritas")).includes(id)
+            ) {
                 this.setState({
                     esFav: true,
                 });
@@ -27,50 +27,63 @@ class CardPopulares extends Component {
     }
 
     Favoritas() {
-        const { esFav } = this.state;
-        const { results } = this.props;
-        let favoritas = JSON.parse(localStorage.getItem("favoritas")) || [];
-
-        if (results && results.id) {
-            if (!esFav) {
-                favoritas.push(results.id);
+        const id = this.props.results.id;
+        this.setState({
+            esFav: !this.state.esFav,
+        });
+        if (this.state.esFav !== true) {
+            if (localStorage.getItem("favoritas") === null) {
+                localStorage.setItem("favoritas", JSON.stringify([id]));
             } else {
-                favoritas = favoritas.filter((id) => id !== results.id);
+                const favoritasStorage = localStorage.getItem("favoritas");
+                const favParsed = JSON.parse(favoritasStorage);
+                favParsed.push(id);
+                const favString = JSON.stringify(favParsed);
+                localStorage.setItem("favoritas", favString);
             }
+        } else {
+            const favoritasStorage = localStorage.getItem("favoritas");
+            const favParsed = JSON.parse(favoritasStorage);
+            const favFiltered = favParsed.filter((favId) => favId !== id);
+            const favString = JSON.stringify(favFiltered);
+            localStorage.setItem("favoritas", favString);
         }
-
-        this.setState({ esFav: !esFav });
-        localStorage.setItem("favoritas", JSON.stringify(favoritas));
     }
 
     verMas() {
-        this.setState({ verMas: !this.state.verMas });
+        this.setState({
+            verMas: !this.state.verMas,
+        });
     }
 
     render() {
         const { results } = this.props;
-        const { esFav, verMas } = this.state;
+        const { esFav } = this.state;
 
-        if (!results || !results.id || !results.title || !results.poster_path) {
-            return null;  
+        if (!results) {
+            return <p>Loading...</p>;
         }
 
         const { title, overview, poster_path } = results;
         return (
             <>
                 <article className="peliculas-grid">
-                    <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className="fotopelicula" />
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                        alt={title}
+                        className="fotopelicula"
+                    />
                     <h3>{title}</h3>
                     <p className="more" onClick={() => this.verMas()}>
-                        {verMas ? "Ocultar descripción" : "Ver descripción"}
+                        {this.state.verMas ? "Ocultar descripción" : "Ver descripción"}
                     </p>
-                    {verMas && (
+                    {this.state.verMas && (
                         <section className="extra">
                             <p>Descripción: {overview}</p>
                         </section>
                     )}
                     <button>
-                        <Link to={`/movie/${results.id}`}> Ir al detalle</Link>
+                        <Link to={`/movie/${results.id}`}>Ir a detalle</Link>
                     </button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (

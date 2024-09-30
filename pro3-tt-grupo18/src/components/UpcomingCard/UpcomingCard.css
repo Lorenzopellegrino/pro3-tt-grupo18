@@ -1,6 +1,5 @@
-/* Estilo general para las tarjetas de películas */
 .peliculas-grid {
-    background-color: #252525; /* Fondo gris oscuro */
+    background-color: #252525; 
     border: 1px solid #333;
     border-radius: 10px;
     padding: 15px;
@@ -15,14 +14,12 @@
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Imagen de la película */
 .peliculas-grid img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
-/* Título de la película */
 .peliculas-grid h3 {
     font-size: 1.2rem;
     color: #ffffff;
@@ -32,7 +29,6 @@
     text-overflow: ellipsis;
 }
 
-/* Botón "Ver descripción" y "Ocultar descripción" */
 .more {
     color: #ff6f61;
     cursor: pointer;
@@ -44,7 +40,6 @@
     color: #e65c50;
 }
 
-/* Descripción extra cuando se despliega */
 .extra {
     background-color: #1c1c1c;
     padding: 10px;
@@ -55,7 +50,6 @@
     font-size: 0.9rem;
 }
 
-/* Estilo de los botones */
 .peliculas-grid button {
     background-color: #ff6f61;
     color: white;
@@ -79,4 +73,11 @@
 .peliculas-grid a {
     text-decoration: none;
     color: #ffffff;
+}
+
+.divPeliculas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px;
 }

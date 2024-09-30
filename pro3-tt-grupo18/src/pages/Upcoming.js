@@ -61,4 +61,4 @@ class UpcomingVerMas extends Component {
     }
 }
 
-export default UpcomingVerMas
+export default UpcomingVerMas;
