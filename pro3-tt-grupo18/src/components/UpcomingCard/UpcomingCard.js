@@ -1,73 +1,74 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./UpcomingCard.css";
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class UpcomingCard extends Component {
-    constructor(props){
-        super(props)
-        this.state = ({
-            data: "",
-            varMas: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            verMas: false,
             esFav: false,
-        })
+        };
     }
-    componentDidMount(){
-        if (localStorage.getItem("favoritas") != null){
-            if(
-                JSON.parse(localStorage.getItem("favoritas").includes(this.state.id))
-            ){
+
+    componentDidMount() {
+        const id = this.props.results.id;
+        if (localStorage.getItem("favoritas") != null) {
+            if (JSON.parse(localStorage.getItem("favoritas")).includes(id)) {
                 this.setState({
                     esFav: true,
                 });
             }
         }
     }
-    Favoritas(){
+
+    Favoritas() {
+        const id = this.props.results.id;
         this.setState({
             esFav: !this.state.esFav,
         });
-        if(
-            this.state.esFav !== true
-        ){
-            if(
-                localStorage.getItem("favoritas") === null
-            ){
-                localStorage.setItem("favoritas", JSON.stringify([this.state.id]))
-            } else{
+        if (this.state.esFav !== true) {
+            if (localStorage.getItem("favoritas") === null) {
+                localStorage.setItem("favoritas", JSON.stringify([id]));
+            } else {
                 const favoritasStorage = localStorage.getItem("favoritas");
                 const favParsed = JSON.parse(favoritasStorage);
-                favParsed.push(this.state.id);
-                const favString = JSON.stringify(favParsed);
-                localStorage.setItem("favoritas", favString);
+                favParsed.push(id);
+                localStorage.setItem("favoritas", JSON.stringify(favParsed));
             }
-        } else{
+        } else {
             const favoritasStorage = localStorage.getItem("favoritas");
             const favParsed = JSON.parse(favoritasStorage);
-            const favFiltered = favParsed.filter((id) => id !== this.state.id);
-            const favString = JSON.stringify(favFiltered);
-            localStorage.setItem("favoritas", favString);            
+            const favFiltered = favParsed.filter((favId) => favId !== id);
+            localStorage.setItem("favoritas", JSON.stringify(favFiltered));
         }
     }
-    verMas(){
+
+    verMas() {
         this.setState({
-            verMas: !this.state.verMas
-        })
+            verMas: !this.state.verMas,
+        });
     }
+
     render() {
         const { results } = this.props;
         const { esFav } = this.state;
-    
+
         if (!results || !results.id || !results.title) {
             return null;
         }
-    
+
         const { title, overview, poster_path } = results;
         return (
             <>
                 <article className="peliculas-grid">
-                    <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500/${poster_path}`} 
+                        alt={title}
+                        className="fotopelicula"
+                    />
                     <h3>{title}</h3>
                     <p className="more" onClick={() => this.verMas()}>
                         {this.state.verMas ? "Ocultar descripción" : "Ver descripción"}
@@ -78,16 +79,16 @@ class UpcomingCard extends Component {
                         </section>
                     )}
                     <button>
-                    <Link to={`/movie/${results.id}`}>Ir a detalle</Link>
+                        <Link to={`/movie/${results.id}`}>Ir a detalle</Link> 
                     </button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (
                             <p>
-                                <FaHeart color="red" /> Eliminar favorita{" "}
+                                <FaHeart color="red" /> Eliminar favorita
                             </p>
                         ) : (
                             <p>
-                                <FaRegHeart /> Marcar favorita{" "}
+                                <FaRegHeart /> Marcar favorita
                             </p>
                         )}
                     </button>
@@ -96,4 +97,5 @@ class UpcomingCard extends Component {
         );
     }
 }
+
 export default UpcomingCard;
