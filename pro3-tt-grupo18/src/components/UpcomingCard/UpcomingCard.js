@@ -59,8 +59,8 @@ class UpcomingCard extends Component {
         const { results } = this.props;
         const { esFav } = this.state;
     
-        if (!results) {
-            return <p>Loading...</p>; 
+        if (!results || !results.id || !results.title) {
+            return null;
         }
     
         const { title, overview, poster_path } = results;

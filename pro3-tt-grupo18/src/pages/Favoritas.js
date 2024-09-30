@@ -1,38 +1,66 @@
-import {Component} from "react";
+import React, { Component } from "react";
 import CardPopulares from "../components/CardPopulares/CardPopulares";
-import UpcomingCard from "../components/UpcomingCard/UpcomingCard";
 
-class Favs extends Component{
-    constructor(props){
+class Favs extends Component {
+    constructor(props) {
         super(props);
         this.state = {
             peliculas: [],
-        }
+            loading: true, 
+        };
     }
-    componentDidMount(){
+
+    componentDidMount() {
         const favoritas = localStorage.getItem("favoritas");
-        if (favoritas !== null){
+        if (favoritas) {
             const favParsed = JSON.parse(favoritas);
+
+            if (favParsed.length === 0) {
+                this.setState({ loading: false, peliculas: [] }); 
+                return;
+            }
+
             Promise.all(
-                favParsed
-                .map((id) =>
-                fetch(
-                    `https://api.themoviedb.org/3/movie/${id}?api_key=bf0e25b4b648e8ee928c7dede4d12427`
-                ).then((respuesta) => respuesta.json())
-            ))
-            .then((data) => this.setState({peliculas: data}))
-            .catch((e) => console.log(e))
+                favParsed.map((id) =>
+                    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bf0e25b4b648e8ee928c7dede4d12427`
+).then((respuesta) => respuesta.json())
+                )
+            )
+                .then((data) => {
+                    const peliculasValidas = data.filter(pelicula => pelicula && pelicula.id);
+                    this.setState({ peliculas: peliculasValidas, loading: false });
+                })
+                .catch((e) => {
+                    console.log(e);
+                    this.setState({ loading: false });
+                });
+        } else {
+            this.setState({ loading: false, peliculas: [] });
         }
     }
-    render(){
-        return(
+
+    render() {
+        const { peliculas, loading } = this.state;
+
+        if (loading) {
+            return <p>Cargando tus películas favoritas...</p>;
+        }
+
+        if (peliculas.length === 0) {
+            return <p>No tienes películas favoritas seleccionadas.</p>;
+        }
+
+        return (
             <>
-            <h1>Tus peliculas favoritas</h1>
-            <CardPopulares peliculas= {this.state.peliculas}/>
-            <UpcomingCard peliculas = {this.state.peliculas}/>
+                <h1>Tus películas favoritas</h1>
+                <div className="peliculas-container">
+                    {peliculas.map((pelicula) => (
+                        <CardPopulares results={pelicula} key={pelicula.id} />
+                    ))}
+                </div>
             </>
-        )
+        );
     }
 }
 
-export default Favs
+export default Favs;
