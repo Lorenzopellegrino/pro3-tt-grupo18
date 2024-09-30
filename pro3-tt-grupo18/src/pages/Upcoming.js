@@ -61,24 +61,30 @@ class UpcomingVerMas extends Component {
     render() {
         return (
             <>
-                {this.state.loading ? (
+                {this.state.loading ? ( 
                     <LoaderComponent />
                 ) : (
                     <>
+                <div className="container">
                 <input
                     type="text"
                     value={this.state.valorfiltrado}
                     onChange={(e) => this.handleFilter(e)}
+                    placeholder='Filtra las películas!'
                 />
-                <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
-
+                <button onClick={() => this.handleResetFilter()}
+                >
+                    Borrar filtro
+                </button>
+                </div>
                 <div className="divPeliculas">
                     {this.state.peliculasfiltradas.map((pelicula) => (
                         <UpcomingCard key={pelicula.id} results={pelicula} />
                     ))}
                 </div>
-                
-                <button onClick={() => this.handleLoadMore()}>Ver Más</button> 
+                <div className="verMas">
+                <button onClick={() => this.handelLoadMore()}
+                >Ver Más</button> </div>
             </>
                 )}
             </>

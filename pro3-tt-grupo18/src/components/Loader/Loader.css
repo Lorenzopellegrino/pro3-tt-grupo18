@@ -1,12 +1,21 @@
-.loader-container {
+.loaderContainer {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     height: 100%;
     padding-top: 50px;
 }
 
-.loader-image {
+.loaderTexto {
+    margin-bottom: 10px; 
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
+
+.loaderImage {
     max-width: 100%;
     height: auto;
     border: 3px solid #ff6f61;

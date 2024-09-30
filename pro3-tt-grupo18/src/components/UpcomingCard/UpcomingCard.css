@@ -81,3 +81,58 @@
     justify-content: space-between;
     padding: 25px;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #121212; 
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.container input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff6f61; 
+    background-color: #333333; 
+    color: #ffffff;
+}
+
+.container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff6f61;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.container input::placeholder{
+    font-size: 16px;
+    text-align: center;
+ }
+
+ .verMas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #121212; 
+    margin: 20px;
+    border-radius: 8px;
+ }
+ 
+ .verMas button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff6f61;
+    color: #ffffff;
+    cursor: pointer;
+ }

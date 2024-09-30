@@ -61,6 +61,7 @@ h1,h2 {
 .not-found-container h1 {
     font-size: 48px;
     margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 .not-found-container img {

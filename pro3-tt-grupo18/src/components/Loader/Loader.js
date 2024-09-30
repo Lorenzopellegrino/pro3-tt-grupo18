@@ -3,11 +3,12 @@ import './Loader.css';
 
 const LoaderComponent = () => {
     return (
-        <div className="loader-container">
+        <div className="loaderContainer">
+            <p className="loaderTexto">Esto podría demorar unos segundos...</p>
             <img 
                 src='https://j.gifs.com/KeX0g7.gif' 
                 alt="Loading" 
-                className="loader-image" 
+                className="loaderImage" 
             />
         </div>
     );
