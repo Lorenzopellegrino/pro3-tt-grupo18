@@ -42,11 +42,14 @@ class PopularesVerMas extends Component {
     handelLoadMore(){
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=bf0e25b4b648e8ee928c7dede4d12427&page=${this.state.paginaActual}`)
         .then(response => response.json())
-        .then(data => this.setState({
-            peliculas: this.state.peliculas.concat(data.results),
-            peliculasfiltradas: this.state.peliculasfiltradas.concat(data.results),
-            paginaActual: this.state.paginaActual + 1
-        }))
+        .then(data => {
+            const peliculasValidas = data.results.filter(pelicula => pelicula && pelicula.id && pelicula.title);
+            this.setState({
+                peliculas: this.state.peliculas.concat(peliculasValidas),
+                peliculasfiltradas: this.state.peliculasfiltradas.concat(peliculasValidas),
+                paginaActual: this.state.paginaActual + 1
+            });
+        })
         .catch((error)=> console.log(error));
     }
 
