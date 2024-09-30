@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import "./Buscador.css";
 
 
 class Buscador extends Component{
@@ -31,7 +32,7 @@ class Buscador extends Component{
         return(
             <div className='buscador'>
                 <form onSubmit={(e) => this.handleNoSubmit(e)}>
-                    <input name = "query" type = "text" onChange={(e) => this.handleCambiar(e)} value ={this.state.query}/>
+                    <input name = "query" type = "text" onChange={(e) => this.handleCambiar(e)} value ={this.state.query} placeholder='Busca cualquier película!'/>
                     <button  onClick={()=> this.handleSubmit()}>Buscar</button>
                 </form>
                 {this.state.error && <p style={{color:'red'}}>{this.state.error}</p>}
