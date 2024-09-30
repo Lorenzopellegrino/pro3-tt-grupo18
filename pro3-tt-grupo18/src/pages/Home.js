@@ -2,18 +2,19 @@ import React, { Component } from "react";
 import Populares from "../components/Populares/Populares";
 import Upcoming from "../components/Upcoming/Upcoming";
 import Buscador from '../components/Buscador/Buscador'; 
+import LoaderComponent from "../components/Loader/Loader";
 
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        cargando: true
+        loading: true
     };
 }
 
 componentDidMount() {
-  this.setState({ cargando: false }); 
+  this.setState({ loading: false }); 
 }
 
 
@@ -21,7 +22,7 @@ componentDidMount() {
 
     return (
       <>
-      {this.state.cargando ? (<p>"Cargando..."</p>) : 
+      {this.state.cargando ? (<LoaderComponent />) : 
       (<>
       
       <Buscador history = {this.props.history}/>
