@@ -70,7 +70,7 @@ class CardPopulares extends Component {
                         </section>
                     )}
                     <button>
-                        <Link to={`/movie/${results}`}> Ir al detalle</Link>
+                        <Link to={`/movie/${results.id}`}> Ir al detalle</Link>
                     </button>
                     <button onClick={() => this.Favoritas()}>
                         {esFav ? (
