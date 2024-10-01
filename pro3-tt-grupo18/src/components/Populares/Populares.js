@@ -35,7 +35,7 @@ class Populares extends Component {
                     }
             </section>
             <div className="botonContainer">
-            <button className="botonVerMas"><Link to= "/vermas/populares"> Ver Más </Link></button>
+            <button className="botonVerMas"><Link to= "/vermas/populares"> Ver Todas </Link></button>
             </div>
             </>
         )
